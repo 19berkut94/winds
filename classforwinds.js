@@ -1,8 +1,32 @@
 'use strict'
-class createWinds {
+document.body.style.display = 'flex';
+document.body.style.flexDirection = 'column'
+document.body.style.margin = '0';
+
+class hideAndSeek {
+    constructor(){
+        
+       
+    }
+
+    hide() {
+        this.tagName.style.display = 'none'
+    }
+
+    appear() {
+        this.tagName.style.display = 'flex'
+    }
+
+
+}
+
+
+
+class createWinds extends hideAndSeek {
     constructor(options) {  
+        super()
           this.tagName = document.createElement(options.tagName)
-        document.body.append(this.tagName)
+       
         this.tagName.innerHTML = options.innerHTML
         this.tagName.style.display = options.display
         this.tagName.style.margin = options.margin 
@@ -15,11 +39,24 @@ class createWinds {
           this.tagName.style.marginTop = options.marginTop + 'px'
           this.tagName.style.paddingTop = options.paddingTop + 'px'
           this.tagName.style.fontSize = options.fontSize + 'px'
-          this.tagName.style.color = options.color
+          this.tagName.style.color = options.color,
+          this.tagName.style.flexDirection = options.flexDirection,
+          document.body.append(this.tagName)
 
+
+          
         }
 
-       
+
+        addPositive(){
+            positiveWind.tagName.appendChild(inPositiveWind.tagName)
+            positiveWind.tagName.appendChild(butnPositiveWind.tagName)
+        }
+        
+        addNegative(){
+       negativeWind.tagName.appendChild(inNegativeWind.tagName)
+         negativeWind.tagName.appendChild(butnNegativeWind.tagName)
+        }
        
     
  }
@@ -31,12 +68,12 @@ class createWinds {
     background: '#55a84c',
     width: 500,
     height: 300,
-    
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
     textAlign: 'center',
-    innerHTML: 'sometext',
-    color: '#55a84c',
-    margin: '0 auto',
-    marginTop: 150,
+    innerHTML: '',
+    margin: '150px  auto'
 } ,
 )
 
@@ -65,10 +102,10 @@ const butnPositiveWind = new createWinds({
  color: 'white',
     });
 
-
-positiveWind.tagName.appendChild(inPositiveWind.tagName)
-positiveWind.tagName.appendChild(butnPositiveWind.tagName)
-
+    positiveWind.addPositive()
+    // positiveWind.tagName.appendChild(inPositiveWind.tagName)
+    // positiveWind.tagName.appendChild(butnPositiveWind.tagName)
+    
 
 
 
@@ -85,12 +122,12 @@ const negativeWind = new createWinds({
     background: '#eb3f3f',
     width: 500,
     height: 300,
-
+    display: 'flex',
+    flexDirection: 'column',
     textAlign: 'center',
-    innerHTML: 'sometext',
-    color: '#eb3f3f',
-    margin: '0 auto',
-    marginTop: 150,
+    innerHTML: '',
+    margin: '150px auto',
+    
 } ,
 )
 
@@ -124,18 +161,17 @@ const butnNegativeWind = new createWinds({
     width: 120,
     height: 50,
  textAlign: 'center',
- marginTop: 30,
+ margin: '30px auto',
  color: 'white',
+
     
 }
 
 );
 
-
-negativeWind.tagName.appendChild(inNegativeWind.tagName)
-negativeWind.tagName.appendChild(butnNegativeWind.tagName)
-
-
+negativeWind.addNegative()
+// negativeWind.tagName.appendChild(inNegativeWind.tagName)
+// negativeWind.tagName.appendChild(butnNegativeWind.tagName)
 
 
 
@@ -146,7 +182,14 @@ negativeWind.tagName.appendChild(butnNegativeWind.tagName)
 
 
 
-
-
+///попытки копировать объект
+const anotherWind = ({...positiveWind})
+console.log(anotherWind)
+document.body.append(anotherWind)
+/////////////////////////////////////
+const a = Object.create(positiveWind)
+console.log(a)
+document.body.append(a)
+//////////////////////////////////////////
 
 
