@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+.buttons {
+  text-transform: uppercase;
+  font-size: 18px;
+  margin-top: 20px;
+}
+.buttons--yes {
+  background-color: #dfdf11;
+  transition: background-color 0.5s linear;
+}
+.buttons--yes:hover {
+  background-color: #696908;
+}
+.buttons--no {
+  background-color: white;
+  transition: background-color 0.5s linear;
+}
+.buttons--no:hover {
+  background-color: #bfbfbf;
+}
+.wind {
+  margin: 150px auto;
+  width: 400px;
+  height: 200px;
+  font-size: 20px;
+  text-align: center;
+}
+.wind--positive {
+  background-color: #42ee42;
+}
+.wind--negative {
+  background-color: #fa5e5e;
+}
+.windnameclass {
+  text-transform: uppercase;
+  font-size: 30px;
+}
+.windtextclass {
+  font-size: 20px;
+}
